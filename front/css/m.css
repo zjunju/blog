@@ -1,0 +1,54 @@
+/*  width <= 839 */
+@media screen and (max-width: 839px){
+    header .nav{width: 100%; margin: 0;}
+    header .nav .content{display: none;}
+    header .nav .button{display: block;width: 60px;}
+    header .nav .logo{
+        display: block;
+        text-align: center;
+    }
+
+    /* main */
+    div.main{
+        width: 100%;
+        margin-top: 80px;
+    }
+
+    div.main div.main-top div.banner{
+        width: 100%;
+        float: none;
+    }
+    div.main div.main-top div.image-box{
+        display: none;
+    }
+
+    div.main-bottom div.blogs-list{
+        width: 100%;
+        float: none;
+    }
+    div.sidebar{
+        display: none;
+    }
+}
+
+/* min-width: 1140px  632  =< width =< 1140 */
+@media screen and (max-width: 1140px) and (min-width:840px){
+    header .nav .content ul{
+        width: 480px;
+        margin-left: 30px;
+    }
+    header .nav .content ul li{
+        padding: 0px 10px;
+        float: left;
+        height: 60px;
+    }
+    header .nav{
+        width: 100%;
+    }
+    div.main{
+        width: 90%;
+    }
+     div.main-top div.banner, div.main-top .image-box{
+        height: 90%;
+    }
+}

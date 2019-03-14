@@ -1,0 +1,4 @@
+__pycache__
+blog/settings.py
+front/node_modules
+front/package-lock.json

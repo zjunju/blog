@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1086389_i8nczhb0fr.css">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  <link rel="stylesheet" href="{% static 'css/m.css' %}">
+  <script src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+  <script src="{% static 'js/base.js' %}"></script>
+  {% block header_extends %}{% endblock %}
+
+</head>
+<body>
+  <div class="clear-mt"></div>
+  <header>
+      <div class="nav">
+          <div class="button">
+            <span class="iconfont icon-menu" id="menu-span"></span>
+          </div>
+          <div class="menu">
+            <ul>
+              <li class="active"><a href="">博客列表</a></li>
+              <li><a href="">个人随笔</a></li>
+              <li><a href="">关于我</a></li>
+              <li><a href="">时间轴</a></li>
+              <li><a href="">留言</a></li>
+            </ul>
+          </div>
+          <div class="logo"><a href="">张俊桔博客</a></div>
+        <div class="content">
+          <div class="logo">
+            <a href="/">张俊桔博客</a>
+          </div>
+            <ul>
+              <li class="{% block index_active %}{% endblock %}">
+                <a href="/">网站首页</a>
+              </li>
+              <li class="{% block blogs_active %}{% endblock %}">
+                <a href="{% url 'blog_list' %}">博客列表</a>
+              </li>
+              <li class="{% block artical_active %}{% endblock %}">
+                <a href="">个人随笔</a>
+              </li>
+              <li class="{% block about_active %}{% endblock %}">
+                <a href="">关于我</a>
+              </li>
+              <li class="{% block timeline_active %}{% endblock %}">
+                <a href="">时间轴</a>
+              </li>
+              <li class="{% block comment_active %}{% endblock %}"><a href="">留言</a></li>
+            </ul>
+        </div>
+        <div class="search-box">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+        </div>
+      </div>
+    </header>
+
+  <div class="main">
+    {% block main_top %}{% endblock %}
+      <div class="main-bottom">
+      <div class="blogs-list">
+        {% block content %}
+        {% endblock %}
+      </div>
+        <div class="sidebar">
+            <div class="blogs-rank">
+              <h1>阅读排行</h1>
+              <ul>
+                <li>第一篇博客</li>
+                <li>第二篇博客</li>
+                <li>第三篇博客</li>
+                <li>第四篇博客</li>
+                <li>第五篇博客</li>
+              </ul>
+          </div>
+            <div class="blogs-rank">
+              <h1>阅读排行</h1>
+              <ul>
+                <li>第一篇博客</li>
+                <li>第二篇博客</li>
+                <li>第三篇博客</li>
+                <li>第四篇博客</li>
+                <li>第五篇博客</li>
+              </ul>
+            </div>
+            <div class="blogs-recommend">
+              <h1>阅读排行</h1>
+              <ul>
+                <li>第一篇博客</li>
+                <li>第二篇博客</li>
+                <li>第三篇博客</li>
+                <li>第四篇博客</li>
+                <li>第五篇博客</li>
+              </ul>
+            </div>
+            <div class="tags">
+              <h1>博客标签</h1>
+            </div>
+            <div class="about">
+              <h1>关于我</h1>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+    <div class="footer">
+      <p>欢迎来访我的博客</p>
+    </div>
+    <script sr="/static/js/bootstrap.min.js"></script>
+</body>
+</html>

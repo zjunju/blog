@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}张俊桔的博客{% endblock %}
+
+{% block header_extends %}
+  <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
+{% block index_active %}
+  active
+{% endblock %}
+
+{% block main_top %}
+  <div class="main-top">
+      <div class="banner"></div>
+      <div class="image-box">
+        <div class="image-1"><img src="{% static 'image/img1.jpg' %}" alt=""></div>
+        <div class="image-2"><img src="{% static 'image/img2.jpg' %}" alt=""></div>
+      </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+  {% include 'commond/blogs_list.html' %}
+{% endblock %}

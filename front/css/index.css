@@ -1,0 +1,41 @@
+div.main-top div.banner{
+    width: 63%;
+    height: 100%;
+    background-color: yellowgreen;
+    float: left;
+}
+
+div.main-top .image-box{
+    width: 35%;
+    height: 100%;
+    float: right;
+}
+
+div.main-top .image-box div{
+    width: 100%;
+    height: 240px;
+    background-color: black;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+
+div.main-top .image-box div img{
+    width: 100%;
+    height: 240px;
+    opacity: 0.7;
+    transition: transform 0.6s;
+}
+
+
+div.main-top .image-box div img:hover{
+    opacity: 0.9;
+    transform: scale(1.1)
+}
+
+.blog{
+    width: 100%;
+    height: 500px;
+    float: left;
+    background-color: tomato;
+}

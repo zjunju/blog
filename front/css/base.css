@@ -1,0 +1,288 @@
+/*  清除所有默认样式 */
+html{color:#000;background:#FFF}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}
+table{border-collapse:collapse;border-spacing:0}
+fieldset,img{border:0}
+address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}
+ol,ul{list-style:none}
+caption,th{text-align:left}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}
+q:before,q:after{content:''}
+abbr,acronym{border:0;font-variant:normal}
+sup{vertical-align:text-top}
+sub{vertical-align:text-bottom}
+input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;*font-size:100%}
+legend{color:#000}
+/*  清除所有默认样式 */
+
+body{
+    font: 15px "Microsoft YaHei", Arial, Helvetica, sans-serif;
+    background-color: #f6f6f6;
+    color: #8c8c8c;
+}
+
+div.clear-mt{
+    overflow: hidden;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+header{
+    width: 100%;
+    height: 60px;
+    background-color: rgba(0,0,0,0.9);
+    position: fixed;
+    z-index: 999;
+    top: 0;
+}
+
+header .nav{
+    width: 1140px;
+    height: 60px;
+    position: relative;
+    margin: 0 auto;
+}
+
+header .nav>.logo{
+    display: none;
+}
+
+header .nav .button{
+    position: absolute;
+    left: 0px;
+    line-height: 60px;
+    font-size: 30px;
+    color: white;
+    display: none;
+}
+
+header .nav .button span{
+    color: white;
+    line-height: 60px;
+    width: 30px;
+    margin-left: 10px;
+    font-size: 30px;
+    cursor: pointer;
+}
+header .nav .button span.iconfont{
+    transition-duration: 1s;
+}
+
+header .nav .menu{
+    display: none;
+    overflow: hidden;
+}
+
+header .nav .menu ul{
+    background-color: white;
+    width: 50%;
+    position: absolute;
+    left: 0;
+    top: 60px;
+}
+
+header .nav .menu li{
+    color: black;
+    line-height: 50px;
+    font-size: 15px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+}
+header .nav .menu li a{
+    color: black;
+}
+
+header .nav .menu li.active a, header .nav .menu li a:hover{
+    color:#00A7EB;
+}
+
+header .nav .content{
+    height: 60px;
+}
+
+
+.logo a{
+    color: #00A7EB;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 60px;
+    text-align: center;
+}
+
+header .nav .content .logo {
+    float: left;
+    font-family: 'Microsoft YaHei';
+}
+
+header .nav .content ul{
+    margin-left: 50px;
+    float: left;
+}
+
+header .nav .content ul li{
+    float: left;
+    padding: 0px 30px;
+    height: 60px;
+}
+
+header .nav .content ul li a{
+    color: #ccc;
+    font-size: 16px;
+    line-height: 60px;
+}
+
+header .nav .content ul li a:hover{
+    color: #00A7EB;
+}
+
+header .nav .content ul li.active a{
+    color: #00A7EB;
+}
+
+header .nav .search-box{
+    position: absolute;
+    right: 0;
+    top: 0;
+    line-height: 60px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 20px;
+    width: 50px;
+    text-align: center;
+}
+
+
+/* div.main */
+div.main{
+    width: 1140px;
+    margin: 0 auto;
+    margin-top: 80px;
+    overflow: hidden;
+}
+
+div.main-top{
+    width: 100%;
+    height: 500px;
+}
+
+div.main-bottom{
+    width: 100%;
+    height: 1000px;
+    margin-top: 20px;
+}
+
+div.main-bottom div.blogs-list {
+    width: 63%;
+    float: left;
+}
+
+div.main-bottom div.blogs-list div.blog-detail{
+    padding: 20px;
+    background-color: white;
+    overflow: hidden;
+    box-shadow: 0px 3px 7px #ccc;
+    margin-bottom: 20px;
+}
+
+div.blog-detail span{
+    display: inline-block;
+    width: 30%;
+    float: left;
+    margin-right: 20px;
+    overflow: hidden;
+}
+
+div.blog-detail span img{
+    width: 100%;
+    max-height: 170px;
+    transition: 0.6s;
+}
+
+div.blog-detail span img:hover{
+    transform: scale(1.1);
+}
+
+div.blog-detail h1{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+div.blog-detail h1 a{
+    color: #8c8c8c;
+}
+
+div.blog-detail h1 a:hover{
+    color: #00A7EB;
+}
+
+div.blog-detail p{
+    letter-spacing: 1px;
+}
+
+div.blog-detail ul{
+    overflow: hidden;
+    margin-top: 30px;
+    height: 50px;
+    font-size: 12px;
+}
+
+div.blog-detail li{
+    float: left;
+    width: 90px;
+}
+
+div.sidebar{
+    width: 35%;
+    float: right;
+}
+
+
+div.main-bottom div.sidebar div{
+    margin-bottom: 20px;
+    width: 100%;
+    padding: 30px;
+    box-shadow: 0 5px 5px 0 #ccc;
+    background-color: white;
+}
+
+
+div.main-bottom div.sidebar div:hover ::after{
+    width: 80px;
+}
+
+div.main-bottom div.sidebar div:last-of-type{
+    margin-bottom: 0;
+}
+
+div.main-bottom div.sidebar h1{
+    font-size: 20px;
+    color: black;
+    font-weight: bold;
+    position: relative;
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+}
+
+div.main-bottom div.sidebar h1:after{
+    content: "";
+    background-color: #282828;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    bottom: 0;
+    position: absolute;
+    transition: 0.6s;
+    font-weight: bold;
+}
+
+
+div.footer{
+    margin-top: 20px;
+    width: 100%;
+    height: 60px;
+    background-color: #1d3533;
+    text-align: center;
+    line-height: 60px;
+}
