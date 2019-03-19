@@ -102,7 +102,6 @@ header .nav .content{
     height: 60px;
 }
 
-
 .logo a{
     color: #00A7EB;
     font-weight: bold;
@@ -117,13 +116,13 @@ header .nav .content .logo {
 }
 
 header .nav .content ul{
-    margin-left: 50px;
+    margin-left: 40px;
     float: left;
 }
 
 header .nav .content ul li{
     float: left;
-    padding: 0px 30px;
+    padding: 0px 20px;
     height: 60px;
 }
 
@@ -148,8 +147,37 @@ header .nav .search-box{
     line-height: 60px;
     color: rgba(255, 255, 255, 0.8);
     font-size: 20px;
-    width: 50px;
+    width: 25%;
     text-align: center;
+    height: 60px;
+}
+
+header .nav .search-box span{
+    width: 40px;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+header .nav .search-box span .iconfont{
+    color: #ccc;
+    font-size: 25px;
+}
+
+.change-search-color{
+    color: black!important;
+}
+
+header .nav .search-box form{
+    display: none;
+}
+
+header .nav .search-box form input[id='wd']{
+    width: 100%;
+    height: 28px;
+    float: right;
+    margin-top: 16px;
 }
 
 
@@ -168,8 +196,8 @@ div.main-top{
 
 div.main-bottom{
     width: 100%;
-    height: 1000px;
     margin-top: 20px;
+    overflow: hidden;
 }
 
 div.main-bottom div.blogs-list {
@@ -219,18 +247,22 @@ div.blog-detail h1 a:hover{
 
 div.blog-detail p{
     letter-spacing: 1px;
+    margin-bottom: 30px;
 }
 
-div.blog-detail ul{
+ul.blog-info{
     overflow: hidden;
-    margin-top: 30px;
     height: 50px;
     font-size: 12px;
 }
 
-div.blog-detail li{
+ul.blog-info li{
     float: left;
-    width: 90px;
+    margin-right: 20px;
+}
+
+.iconfont{
+    margin-right: 5px;
 }
 
 div.sidebar{
@@ -277,7 +309,6 @@ div.main-bottom div.sidebar h1:after{
     font-weight: bold;
 }
 
-
 div.footer{
     margin-top: 20px;
     width: 100%;
@@ -285,4 +316,126 @@ div.footer{
     background-color: #1d3533;
     text-align: center;
     line-height: 60px;
+}
+
+/* 登陆注册 */
+div.mask{
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(0,0,0, 0.5);
+    overflow-y: scroll;
+}
+
+
+/* mask下的第一层盒子 */
+div.signin-up-box{
+    margin: 50px auto;
+    width: 400px;
+    overflow: hidden;
+}
+
+/* 登录和注册div共同的头部，有关闭按钮 */
+div.sign-header{
+    width: 100%;
+    height: 40px;
+    position: relative;
+    background-color: white;
+}
+
+#sign-close-btn{
+    display: inline-block;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+#sign-close-btn.iconfont{
+    color: #5e5e5e;
+    line-height: 40px;
+}
+
+/*  登录注册两个盒子的父盒子 */
+div.sign-box{
+    width: 800px;
+    overflow: hidden;
+    margin-left: -400px;
+}
+
+div.sign-box a:hover{
+    color: #357eeb;
+}
+
+div.sign-box a:focus{
+    text-decoration: none;
+    color: #357eeb;
+}
+
+div.sign-box h3{
+    font-size: 16px;
+    color: black;
+    display: inline-block;
+    padding-bottom: 5px;
+    border-bottom: 3px solid #5c87d9;
+}
+
+div.signin, div.signup{
+    width: 400px;
+    padding: 0 20px 20px;
+    float: left;
+    background-color: white;
+}
+
+div.top-group{
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+div.input{
+    height: 40px;
+    margin-bottom: 20px;
+}
+
+div.input-left{
+    width: 250px;
+    float: left;
+}
+
+#send-msg-code{
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    float: right;
+    line-height: 30px;
+    box-sizing: border-box;
+    padding: 0 10px;
+    color: #5c87d9;
+}
+
+div.form-group div.input:last-of-type{
+    margin-top: 40px;
+}
+
+div.input label{
+    line-height: 40px;
+    color: black;
+    font-weight: normal;
+}
+
+div.error-field{
+    color: red;
+}
+
+.change{
+    float: right;
+    color: #357eeb;
+    font-size: 16px;
+    cursor: pointer;
 }

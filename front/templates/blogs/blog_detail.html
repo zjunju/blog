@@ -1,0 +1,107 @@
+{% extends 'blogs/blog_list.html' %}
+
+{% block title %}博客详情{% endblock %}
+{% block header_extends %}
+  <link rel="stylesheet" href="{% static 'css/blog_detail.css' %}">
+{#  {% verbatim %}#}
+{#    <script id="reply-form" type="text/html">#}
+{##}
+{#    </script>#}
+{#  {% endverbatim %}#}
+  <script src="{% static 'js/myajax.js' %}"></script>
+  <script src="{% static 'js/blog_detail.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+  <div class="blog-info">
+      <h1>{{ blog.title }}</h1>
+      <ul class="blog-info-ul">
+        <li title="标签">
+          <i class="iconfont icon-icon--"></i>
+          {% for tag in blog.tags.all %}
+            {{ tag.tag_name }}
+          {% endfor %}
+        </li>
+        <li title="发布日期"><i class="iconfont icon-time"></i>{{ blog.pub_time|date:'Y-m-d' }}</li>
+        <li title="阅读数"><i class="iconfont icon-eye"></i>{{ blog.read_times }}</li>
+        <li title="喜欢数"><i class="iconfont icon-xihuan"></i>{{ blog.love }}</li>
+      </ul>
+    </div>
+  <div class="blog">
+    <div class="blog-content">
+      {{ blog.content|safe }}
+    </div>
+    <div class="user-operate">
+      <div class="operate-btn">
+        <button class="btn btn-primary" id="love-blog-btn" data-blog="{{ blog.pk }}">
+          <i class="iconfont icon-good"></i><span>喜欢这篇博客（{{ blog.love }}）</span>
+        </button>
+        <button class="btn btn-primary"><i class="iconfont icon-Money"></i>打赏</button>
+      </div>
+    </div>
+    <div class="other-blog">
+      <span>上一篇博客：
+        {% if pre_blog %}
+          <a href="{% url 'blogs:blog_detail' pre_blog.pk %}">{{ pre_blog.title }}</a>
+        {% else %}
+          没有了
+        {% endif %}
+      </span>
+      <span>下一篇博客：
+        {% if next_blog %}
+        <a href="{% url 'blogs:blog_detail' next_blog.pk %}">{{ next_blog.title }}</a>
+        {% else %}
+          没有了
+        {% endif %}
+      </span>
+    </div>
+    <div class="relative-blog">
+      <h3><i class="iconfont icon-book"></i>相关文章</h3>
+      <ul>
+        <li><a href="#">相关文章</a></li>
+        <li><a href="#">相关文章</a></li>
+        <li><a href="#">相关文章</a></li>
+      </ul>
+    </div>
+    <div class="blog-comment">
+      <h3><i class="iconfont icon-comment"></i>文章评论</h3>
+      {% if user.is_authenticated %}
+      <div class="comment-form">
+        <form action="" autocomplete="off">
+          {% csrf_token %}
+          <textarea name="content"  class="form-control" data-blogpk="{{ blog.pk }}"></textarea>
+          <input type="submit" class="btn btn-primary pull-right" value="提交评论" id="submit-comment">
+          <input type="reset" value="清空" class="btn btn-danger pull-right">
+        </form>
+      </div>
+      {% else %}
+        <p>您尚未登录，请先登录再进行评论。 <a href="javascript:void(0);" class="btn btn-primary go-signin">登录</a>or <a href="javascript:void(0);" class="btn btn-warning go-signup">注册</a> </p>
+      {% endif %}
+      <div class="panel panel-default comment-list">
+        <div class="panel-heading"><h2 style="font-size: 20px;">评论列表</h2></div>
+        <div class="panel-body">
+          {% for comment in comments.all %}
+            <div class="each-comment">
+              <p class="comment-info">
+                <span class="name">{{ comment.auth.username }}</span>
+                <span>{{ comment.date_time }}</span>
+              </p>
+              <div class="comment-content">
+                <p>{{ comment.content }}</p>
+              </div>
+              <div class="comment-operate">
+                <p>
+                <span data-comment="{{ comment.pk }}"><i class="iconfont icon-xinxi"></i><a href="javascript:void(0);" class="show-reply" >查看回复</a></span>
+                <span><i class="iconfont icon-icon_reply"></i><a href="javascript:void(0);" class="reply" data-rpuserpk="{{ comment.auth.pk }}" data-commenpk="{{ comment.pk }}" data-username="{{ comment.auth.username }}">回复</a></span>
+              </p>
+              </div>
+            </div>
+          {% empty %}
+            <p>暂无评论，赶紧发表评论吧！</p>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+

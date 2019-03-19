@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>{% block title %}{% endblock %}</title>
-  <link rel="stylesheet" href="//at.alicdn.com/t/font_1086389_i8nczhb0fr.css">
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1086389_0mq20lv60ecc.css">
   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
   <link rel="stylesheet" href="{% static 'css/base.css' %}">
   <link rel="stylesheet" href="{% static 'css/m.css' %}">
@@ -24,8 +24,15 @@
               <li class="active"><a href="">博客列表</a></li>
               <li><a href="">个人随笔</a></li>
               <li><a href="">关于我</a></li>
-              <li><a href="">时间轴</a></li>
-              <li><a href="">留言</a></li>
+              <li>
+                {% if user.is_authenticated %}
+                  <a href="#">{{ user.username }}</a>/
+                  <a href="{% url 'users:logout' %}" class="logout">{{ 退出登录 }}</a>
+                {% else %}
+                  <a href="javascript:void(0);" class="go-signin">登录</a>/
+                  <a href="javascript:void(0);" class="go-signup">注册</a>
+                {% endif %}
+              </li>
             </ul>
           </div>
           <div class="logo"><a href="">张俊桔博客</a></div>
@@ -38,7 +45,7 @@
                 <a href="/">网站首页</a>
               </li>
               <li class="{% block blogs_active %}{% endblock %}">
-                <a href="{% url 'blog_list' %}">博客列表</a>
+                <a href="{% url 'blogs:blog_list' %}">博客列表</a>
               </li>
               <li class="{% block artical_active %}{% endblock %}">
                 <a href="">个人随笔</a>
@@ -46,14 +53,23 @@
               <li class="{% block about_active %}{% endblock %}">
                 <a href="">关于我</a>
               </li>
-              <li class="{% block timeline_active %}{% endblock %}">
-                <a href="">时间轴</a>
-              </li>
               <li class="{% block comment_active %}{% endblock %}"><a href="">留言</a></li>
+              <li class="{% block signup_active %}{% endblock %}">
+                {% if user.is_authenticated %}
+                  <a href="#">{{ user.username }}</a>/
+                  <a href="{% url 'users:logout' %}" class="logout">退出登录</a>
+                {% else %}
+                  <a href="javascript:void(0);" class="go-signin">登录</a>/
+                  <a href="javascript:void(0);" class="go-signup">注册</a>
+                {% endif %}
+              </li>
             </ul>
         </div>
         <div class="search-box">
-            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+          <form action="" method="get" autocomplete="off">
+            <input type="text" id="wd" class="form-control" placeholder="搜索">
+          </form>
+          <span id="search"><i class="iconfont icon-search"></i></span>
         </div>
       </div>
     </header>
@@ -106,9 +122,82 @@
       </div>
     </div>
   </div>
-    <div class="footer">
+  <div class="footer">
       <p>欢迎来访我的博客</p>
     </div>
+
+  <div class="mask">
+    <div class="signin-up-box">
+      <div class="sign-header">
+        <span id="sign-close-btn" class="iconfont icon-close"></span>
+      </div>
+      <div class="sign-box">
+        <div class="signin">
+          <div class="top-group">
+            <h3>请登录</h3>
+            <a id="signup" class="change" href="javascript:void(0);">立即注册></a>
+          </div>
+          <div class="form-group">
+            <form action="#" autocomplete="off">
+              {% csrf_token %}
+              <div class="input">
+                <input type="text" placeholder="请输入用户名或手机号码" class="form-control" name="username">
+              </div>
+              <div class="input">
+                <input type="password" placeholder="请输入密码" class="form-control" name="password">
+              </div>
+              <div class="input">
+                <label><input type="checkbox" value="1" name="remember">&nbsp;记住我</label>
+                <input type="reset" value="清空" class="btn btn-danger pull-right">
+              </div>
+              <div class="error-field" id="signin-error-field">
+              </div>
+              <div class="input">
+                <input type="submit" class="form-control btn btn-primary" value="立即登录" id="signin-submit">
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="signup">
+          <div class="top-group">
+            <h3>注册</h3>
+            <a id="signin" class="change" href="javascript:void(0);">立即登录></a>
+          </div>
+          <div class="form-group">
+            <form action="" autocomplete="off">
+              {% csrf_token %}
+              <div class="input">
+                <input type="text" placeholder="请输入手机号码" class="form-control" name="telephone">
+              </div>
+              <div class="input">
+                <input type="text" placeholder="请输入用户名" class="form-control" name="username">
+              </div>
+              <div class="input">
+                <input type="password" placeholder="请输入密码" class="form-control" name="password">
+              </div>
+               <div class="input">
+                <input type="password" placeholder="确认密码" class="form-control" name="password_reply">
+              </div>
+              <div class="input">
+                <div class="input-left">
+                  <input type="text" placeholder="短信验证码" class="form-control" name="message-code">
+                </div>
+                <div class="input-right">
+                  <span id="send-msg-code">发送验证码</span>
+                </div>
+              </div>
+              <div class="error-field" id="signup-error-field"></div>
+              <div class="input">
+                <input type="submit" class="form-control btn btn-primary" value="立即注册" id="signup-submit">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
     <script sr="/static/js/bootstrap.min.js"></script>
 </body>
 </html>

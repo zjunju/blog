@@ -1,5 +1,174 @@
+div.blog-info{
+    width: 100%;
+    background-color: #ebe65f;
+    padding: 20px;
+    color: black;
+}
+
+
+ul.blog-info-ul {
+    overflow: hidden;
+    height: 30px;
+    font-size: 14px;
+    line-height: 30px;
+    margin-top: -10px;
+}
+
+ul.blog-info-ul li{
+    float: left;
+    margin-right: 20px;
+}
+
 div.blog{
     width: 100%;
-    height: 1000px;
-    background-color: tomato;
+    padding: 20px;
+    background-color: white;
+    color: black;
+    overflow: hidden;
+}
+
+div.blog-info h1, div.blog h1{
+    font-size: 25px;
+    padding: 0px 0 30px;
+}
+
+div.blog-content{
+    width: 100%;
+
+}
+
+div.user-operate{
+    width: 100%;
+    margin: 40px 0px 20px;
+}
+
+div.user-operate div.operate-btn{
+    width: 300px;
+    margin: 0 auto;
+}
+
+div.user-operate div.operate-btn button:nth-of-type(2){
+    margin-left: 30px;
+}
+
+div.other-blog span{
+    display: inline-block;
+    width: 100%;
+    margin-top: 10px;
+}
+
+div.relative-blog{
+    margin: 30px 0px 20px;
+    width: 100%;
+}
+
+div.blog h3{
+    width: 100%;
+    font-size: 15px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #5e5e5e;
+    margin-bottom: 10px;
+}
+
+div.relative-blog li{
+    margin: 10px 0px;
+}
+
+div.blog-comment{
+    width: 100%;
+}
+
+div.comment-form{
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+div.comment-form textarea{
+    resize: none;
+    width: 100%;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+div.comment-form input[type='reset']{
+    margin-right: 20px;
+}
+
+div.comment-list{
+    border: 1px solid #EBEBEB;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px #EBEBEB;
+}
+
+div.each-comment{
+    width: 100%;
+    border-bottom: 1px solid #8c8c8c;
+    padding: 20px 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+div.comment-content p{
+    text-indent: 2em;
+}
+
+div.each-comment p.comment-info{
+    position: relative;
+    height: 24px;
+
+}
+
+div.each-comment p.comment-info span:first-of-type{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+div.each-comment p.comment-info span:last-of-type{
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #8590A6;
+}
+
+
+div.each-comment .iconfont{
+    color: rgba(0,0,0,0.5);
+}
+
+div.each-comment div.comment-operate{
+    width: 100%;
+    position: relative;
+    height: 40px;
+    line-height: 40px;
+}
+
+div.each-comment div.comment-operate p{
+    margin-left: 10px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+div.each-comment div.comment-operate p span{
+    margin-left: 10px;
+}
+
+div.each-comment div.reply-form{
+    width: 100%;
+}
+
+div.each-comment div.reply-form textarea{
+    margin-bottom: 10px;
+}
+
+.noresize{
+    resize: none;
+}
+
+div.blog a:hover{
+    text-decoration: underline;
+    color: #2e6da4;
 }

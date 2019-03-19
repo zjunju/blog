@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block header_extends %}
+  <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
+{% block title %}博客列表{% endblock %}
+
+{% block blogs_active %}active{% endblock %}
+
+{% block content %}
+  {% for blog in blogs %}
+    <div class="blog-detail">
+      <h1><a href="{% url 'blogs:blog_detail' blog.pk %}">{{ blog.title }}</a></h1>
+      {% if blog.thumbnail %}
+        <span><a href="{% url 'blogs:blog_detail' blog.pk %}"><img src="{{ blog.thumbnail.url }}" alt=""></a></span>
+      {% endif %}
+      <p>{{ blog.content|striptags|truncatechars:50 }}</p>
+      <ul class="blog-info">
+        <li><i class="iconfont icon-icon--"></i>
+          {% for tag in blog.tags.all %}
+            {{ tag }}&nbsp;
+          {% endfor %}
+        </li>
+        <li><i class="iconfont icon-time"></i>{{ blog.pub_time|date:'Y年m月d日' }}</li>
+        <li><i class="iconfont icon-eye"></i>{{ blog.read_times }}</li>
+        <li><i class="iconfont icon-xihuan"></i>{{ blog.love }}</li>
+      </ul>
+    </div>
+  {% empty %}
+    <h1>暂无博客，敬请期待!</h1>
+  {% endfor %}
+{% endblock %}
+
